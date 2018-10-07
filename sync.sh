@@ -8,7 +8,6 @@ which jq >/dev/null || dnf -y install jq
 mkdir -p "$THISDIR/files"
 filescount=$(jq 'keys|length' "$THISDIR/files.json")
 for n in $(seq 0 $(expr $filescount - 1)); do
-    set -x
     n_name="$(jq -r "keys[$n]" "$THISDIR/files.json")"
     n_url="$(jq -r ".[\"$n_name\"].url" "$THISDIR/files.json")"
     n_md5="$(jq -r ".[\"$n_name\"].md5" "$THISDIR/files.json")"
@@ -22,7 +21,6 @@ for n in $(seq 0 $(expr $filescount - 1)); do
         fi
     fi
 done
-exit
 
 rsync --archive "$THISDIR/root/" /w
 
