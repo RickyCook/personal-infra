@@ -1,7 +1,7 @@
 [Unit]
 Description=Nginx proxy Let's Encrypt companion
-After=docker.service
-Requires=docker.service
+After=nginx-proxy.service
+Requires=nginx-proxy.service
 
 [Service]
 TimeoutStartSec=0
