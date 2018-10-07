@@ -46,4 +46,4 @@ for op in disable stop; do
     systemctl $op nextcloud-postgres || true
 done
 
-rm /etc/systemd/system/nextcloud-postgres.service
+rm -f /etc/systemd/system/nextcloud-postgres.service
