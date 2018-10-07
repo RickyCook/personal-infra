@@ -42,7 +42,7 @@ for op in enable start; do
     systemctl $op nextcloud-web
 done
 for op in disable stop; do
-    systemctl $op nextcloud-postgres
+    systemctl $op nextcloud-postgres || true
 done
 
 rm /etc/systemd/system/nextcloud-postgres.service
