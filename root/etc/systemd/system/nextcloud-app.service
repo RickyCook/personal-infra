@@ -1,7 +1,7 @@
 [Unit]
 Description=NextCloud app server
-After=docker.service
-Requires=docker.service
+After=nextcloud-postgres.service
+Requires=nextcloud-postgres.service
 
 [Service]
 TimeoutStartSec=0
