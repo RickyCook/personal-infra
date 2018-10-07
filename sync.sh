@@ -11,6 +11,7 @@ dnf -y install docker-ce
 systemctl daemon-reload
 
 for op in enable start; do
+    systemctl $op docker
     systemctl $op nginx-proxy
     systemctl $op nginx-proxy-letsencrypt
 done
