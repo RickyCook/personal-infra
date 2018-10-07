@@ -12,7 +12,7 @@ ExecStart=/usr/bin/docker \
     run \
     --rm \
     --name %n \
-    --volume /var/run/docker.sock:/tmp/docker.sock:ro \
+    --volume /var/run/docker.sock:/var/run/docker.sock:ro \
     --volumes-from nginx-proxy.service \
     jrcs/letsencrypt-nginx-proxy-companion:v1.9.1
 
