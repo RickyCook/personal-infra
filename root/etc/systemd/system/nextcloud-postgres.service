@@ -12,9 +12,11 @@ ExecStart=/usr/bin/docker \
     run \
     --rm \
     --name %n \
-    --env POSTGRES_PASSWORD=cnohurcmjrocrmewmqjkntml
-    --env PGDATA=/var/lib/postgresql/data/pgdata
-    --volume /var/lib/postgresql/data/pgdata
+    --env POSTGRES_DB=nextcloud \
+    --env POSTGRES_USER=nextcloud \
+    --env POSTGRES_PASSWORD=cnohurcmjrocrmewmqjkntml \
+    --env PGDATA=/var/lib/postgresql/data/pgdata \
+    --volume /var/lib/postgresql/data/pgdata \
     postgres:10.5-alpine
 
 [Install]
