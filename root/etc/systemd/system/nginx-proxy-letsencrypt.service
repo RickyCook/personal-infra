@@ -1,0 +1,19 @@
+[Unit]
+Description=Nginx proxy Let's Encrypt companion
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker rm -f %n
+ExecStartPre=-/usr/bin/docker pull jrcs/letsencrypt-nginx-proxy-companion:v1.9.1
+ExecStart=/usr/bin/docker \
+    run \
+    --rm \
+    --name %n \
+    --volumes-from nginx-proxy.service \
+    jrcs/letsencrypt-nginx-proxy-companion:v1.9.1
+
+[Install]
+WantedBy=multi-user.target
