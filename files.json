@@ -1,0 +1,6 @@
+{
+    "nextcloud-nginx.conf": {
+        "url": "https://raw.githubusercontent.com/nextcloud/docker/master/.examples/docker-compose/with-nginx-proxy/postgres/fpm/web/nginx.conf",
+        "md5": "7efa20d672b6b46cf79b323ccb8e5b0f"
+    }
+}
