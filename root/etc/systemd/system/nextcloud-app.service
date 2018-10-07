@@ -1,7 +1,7 @@
 [Unit]
 Description=NextCloud app server
-After=nextcloud-postgres.service
-Requires=nextcloud-postgres.service
+After=docker.service
+Requires=docker.service
 
 [Service]
 TimeoutStartSec=0
@@ -13,10 +13,6 @@ ExecStart=/usr/bin/docker \
     --rm \
     --name %N \
     --volume nextcloud:/var/www/html:rw \
-    --env POSTGRES_DB=postgres \
-    --env POSTGRES_USER=postgres \
-    --env POSTGRES_PASSWORD=cnohurcmjrocrmewmqjkntml \
-    --env POSTGRES_HOST=db \
     --env NEXTCLOUD_ADMIN_USER=biru \
     --env NEXTCLOUD_ADMIN_PASSWORD=tnhaurontkjmnotmjrcb \
     --link nextcloud-postgres:db \
