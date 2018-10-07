@@ -12,7 +12,7 @@ ExecStart=/usr/bin/docker \
     run \
     --rm \
     --name %N \
-    --env-file /root/personal-infra/files/%N.env
+    --env-file /root/personal-infra/files/%N.env \
     minio/minio:RELEASE.2018-10-06T00-15-16Z \
     gateway b2
 
