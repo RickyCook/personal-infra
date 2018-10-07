@@ -38,4 +38,6 @@ for op in enable start; do
     systemctl $op docker
     systemctl $op nginx-proxy
     systemctl $op nginx-proxy-letsencrypt
+    systemctl $op nextcloud-app
+    systemctl $op nextcloud-web
 done
