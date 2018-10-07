@@ -22,7 +22,7 @@ for n in $(seq 0 $(expr $filescount - 1)); do
     fi
 done
 
-rsync --archive "$THISDIR/root/" /w
+rsync --archive "$THISDIR/root/" /
 
 if ! which docker >/dev/null; then
     dnf -y install dnf-plugins-core
