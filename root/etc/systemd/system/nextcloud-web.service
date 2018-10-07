@@ -14,8 +14,8 @@ ExecStart=/usr/bin/docker \
     --name %n \
     --volume nextcloud:/var/www/html:ro \
     --volume /root/personal-infra/files/nextcloud-nginx.conf:/etc/nginx/nginx.conf \
-    --env VIRTUAL_HOST=files.thatpanda.com,files.puppo.io \
-    --env LETSENCRYPT_HOST=files.thatpanda.com,files.puppo.io \
+    --env VIRTUAL_HOST=files.thatpanda.com \
+    --env LETSENCRYPT_HOST=files.thatpanda.com \
     --env LETSENCRYPT_EMAIL=letsencrypt@auto.thatpanda.com \
     --link nextcloud-app.service:app \
     nginx:1.15
