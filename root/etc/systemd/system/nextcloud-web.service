@@ -1,0 +1,23 @@
+[Unit]
+Description=NextCloud web server
+After=nextcloud-app.service
+Requires=nextcloud-app.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker rm -f %n
+ExecStartPre=-/usr/bin/docker pull nginx:1.15-alpine
+ExecStart=/usr/bin/docker \
+    run \
+    --rm \
+    --name %n \
+    --volume nextcloud:/var/www/html:ro \
+    --volume /root/personal-infra/files/nextcloud-nginx.conf:/etc/nginx/nginx.conf \
+    --env VIRTUAL_HOST=files.thatpanda.com,files.puppo.io \
+    --env LETSENCRYPT_HOST=files.thatpanda.com,files.puppo.io \
+    --env LETSENCRYPT_EMAIL=letsencrypt@auto.thatpanda.com \
+    nginx:1.15-alpine
+
+[Install]
+WantedBy=multi-user.target
