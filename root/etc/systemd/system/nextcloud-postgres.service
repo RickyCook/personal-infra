@@ -12,8 +12,6 @@ ExecStart=/usr/bin/docker \
     run \
     --rm \
     --name %N \
-    --env POSTGRES_DB=nextcloud \
-    --env POSTGRES_USER=nextcloud \
     --env POSTGRES_PASSWORD=cnohurcmjrocrmewmqjkntml \
     --env PGDATA=/var/lib/postgresql/data/pgdata \
     --volume %N-pgdata:/var/lib/postgresql/data/pgdata \
