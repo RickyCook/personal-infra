@@ -15,7 +15,6 @@ ExecStart=/usr/bin/docker \
     --volume nextcloud:/var/www/html:rw \
     --env NEXTCLOUD_ADMIN_USER=biru \
     --env NEXTCLOUD_ADMIN_PASSWORD=tnhaurontkjmnotmjrcb \
-    --link nextcloud-postgres:db \
     nextcloud:14.0-rc-fpm
 
 [Install]
