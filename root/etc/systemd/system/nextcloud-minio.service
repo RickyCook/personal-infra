@@ -1,0 +1,20 @@
+[Unit]
+Description=NextCloud Minio storage server
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker rm -f %N
+ExecStartPre=-/usr/bin/docker pull minio/minio:RELEASE.2018-10-06T00-15-16Z
+ExecStart=/usr/bin/docker \
+    run \
+    --rm \
+    --name %N \
+    --env-file /root/personal-infra/files/%N.env
+    minio/minio:RELEASE.2018-10-06T00-15-16Z \
+    gateway b2
+
+[Install]
+WantedBy=multi-user.target
