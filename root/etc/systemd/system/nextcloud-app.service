@@ -6,12 +6,12 @@ Requires=nextcloud-postgres.service
 [Service]
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=-/usr/bin/docker rm -f %n
+ExecStartPre=-/usr/bin/docker rm -f %N
 ExecStartPre=-/usr/bin/docker pull nextcloud:14.0-rc-fpm
 ExecStart=/usr/bin/docker \
     run \
     --rm \
-    --name %n \
+    --name %N \
     --volume nextcloud:/var/www/html:rw \
     --env POSTGRES_DB=nextcloud \
     --env POSTGRES_USER=nextcloud \

@@ -6,12 +6,12 @@ Requires=docker.service
 [Service]
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=-/usr/bin/docker rm -f %n
+ExecStartPre=-/usr/bin/docker rm -f %N
 ExecStartPre=-/usr/bin/docker pull postgres:10.5-alpine
 ExecStart=/usr/bin/docker \
     run \
     --rm \
-    --name %n \
+    --name %N \
     --env POSTGRES_DB=nextcloud \
     --env POSTGRES_USER=nextcloud \
     --env POSTGRES_PASSWORD=cnohurcmjrocrmewmqjkntml \
