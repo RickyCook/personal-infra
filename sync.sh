@@ -23,7 +23,6 @@ for n in $(seq 0 $(expr $filescount - 1)); do
 done
 
 rsync --archive "$THISDIR/root/" /
-rm /etc/systemd/system/nextcloud-postgres.service
 
 if ! which docker >/dev/null; then
     dnf -y install dnf-plugins-core
@@ -42,3 +41,8 @@ for op in enable start; do
     systemctl $op nextcloud-app
     systemctl $op nextcloud-web
 done
+for op in disable stop; do
+    systemctl $op nextcloud-postgres
+done
+
+rm /etc/systemd/system/nextcloud-postgres.service
