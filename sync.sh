@@ -2,7 +2,7 @@
 THISDIR="$(cd "$(dirname "$0")"; pwd)"
 rsync --archive "$THISDIR/root/" /
 
-if [[ -f /usr/bin/docker ]]; then
+if [[ ! -f /usr/bin/docker ]]; then
     dnf -y install dnf-plugins-core
     dnf config-manager \
         --add-repo \
